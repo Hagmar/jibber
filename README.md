@@ -1,6 +1,6 @@
 # Jibber
 
-iixxxixxmmmmnwxxpoxxxmmanwiixoixpxxaanwxxxoopxaoxxmwixxxiiixaaoo.
+iiemeeawxdmieziieemmeimeoaeenwopxadeeooiiiennwoiiienwopxxxxppxaooiiiodddonxdonnxio.
 
 * **.** - end
 * **,** - jump/loop label
