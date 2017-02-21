@@ -14,8 +14,8 @@ void interpret(char* program){
     while (*c != '.') {
         switch (*c) {
             case 'a':
-                *sp = *sp + *(sp-1);
                 sp--;
+                *(sp-1) = *sp + *(sp-1);
                 break;
             case 'c':
                 i = *(++c) - 'a';
@@ -46,8 +46,8 @@ void interpret(char* program){
                 }
                 break;
             case 'm':
-                *sp = *sp + *(sp-1);
                 sp--;
+                *(sp-1) = *sp * *(sp-1);
                 break;
             case 'n':
                 p++;
@@ -64,8 +64,8 @@ void interpret(char* program){
                 sp++;
                 break;
             case 's':
-                *sp = *sp - *(sp-1);
                 sp--;
+                *(sp-1) = *sp - *(sp-1);
                 break;
             case 't':
                 *sp++ = *++c;
