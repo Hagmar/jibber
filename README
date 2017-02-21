@@ -3,6 +3,7 @@
 . - end
 , - jump/loop label
 a - add
+b - branch (Todo)
 c - call
 d - decrement
 f - function
@@ -15,6 +16,7 @@ o - output
 p - previous
 r - read
 s - subtract
+t - top
 w - write
 x - stack
 y - pop

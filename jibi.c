@@ -14,7 +14,7 @@ void interpret(char* program){
     while (*c != '.') {
         switch (*c) {
             case 'a':
-                *(sp) = *sp + *(sp-1);
+                *sp = *sp + *(sp-1);
                 sp--;
                 break;
             case 'c':
@@ -46,14 +46,14 @@ void interpret(char* program){
                 }
                 break;
             case 'm':
-                *(sp) = *sp + *(sp-1);
+                *sp = *sp + *(sp-1);
                 sp--;
                 break;
             case 'n':
                 p++;
                 break;
             case 'o':
-                printf("%c", *p);
+                printf("%c", *--sp);
                 break;
             case 'p':
                 p--;
@@ -64,8 +64,11 @@ void interpret(char* program){
                 sp++;
                 break;
             case 's':
-                *(sp) = *sp - *(sp-1);
+                *sp = *sp - *(sp-1);
                 sp--;
+                break;
+            case 't':
+                *sp++ = *++c;
                 break;
             case 'w':
                 *p = *--sp;
