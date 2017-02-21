@@ -5,7 +5,7 @@ iixxxixxmmmmnwxxpoxxxmmanwiixoixpxxaanwxxxoopxaoxxmwixxxiiixaaoo.
 . - end
 , - jump/loop label
 a - add
-b - branch (Todo)
+b - branch
 c - call
 d - decrement
 f - function

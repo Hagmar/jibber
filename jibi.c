@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-int data[5000] = {0};
-int stack[5000] = {0};
+char data[5000] = {0};
+char stack[5000] = {0};
 char *funs[26] = {0};
 
 void interpret(char* program){
-    int *p = data;
-    int *sp = stack;
+    char *p = data;
+    char *sp = stack;
     char *c = program;
     char *fp;
     unsigned char i;
@@ -15,14 +15,19 @@ void interpret(char* program){
         switch (*c) {
             case 'a':
                 sp--;
-                *(sp-1) = *sp + *(sp-1);
+                *(sp-1) += *sp;
+                break;
+            case 'b':
+                if (! *--sp) {
+                    while (*(++c) != ',');
+                }
                 break;
             case 'c':
                 i = *(++c) - 'a';
                 interpret(funs[i]);
                 break;
             case 'd':
-                (*p)--;
+                (*sp)--;
                 break;
             case 'f':
                 i = *(++c) - 'a';
@@ -35,13 +40,13 @@ void interpret(char* program){
                 *fp = '.';
                 break;
             case 'i':
-                (*p)++;
+                (*sp)++;
                 break;
             case 'j':
                 while (*c != ',' && *c != '.') c++;
                 break;
             case 'l':
-                if (*sp--) {
+                if (! *--sp) {
                     while (*(--c) != ',');
                 }
                 break;
@@ -65,7 +70,7 @@ void interpret(char* program){
                 break;
             case 's':
                 sp--;
-                *(sp-1) = *sp - *(sp-1);
+                *(sp-1) -= *sp;
                 break;
             case 't':
                 *sp++ = *++c;
