@@ -12,7 +12,6 @@ void interpret(char* program){
     unsigned char i;
 
     while (*c != '.') {
-        printf("Command: '%c'\n", *c);
         switch (*c) {
             case 'a':
                 *(sp) = *sp + *(sp-1);
@@ -42,7 +41,7 @@ void interpret(char* program){
                 while (*c != ',' && *c != '.') c++;
                 break;
             case 'l':
-                if (*p--) {
+                if (*sp--) {
                     while (*(--c) != ',');
                 }
                 break;
@@ -60,8 +59,9 @@ void interpret(char* program){
                 p--;
                 break;
             case 'r':
-                *p = getchar();
-                while (*p == '\n') *p = getchar();
+                *sp = getchar();
+                while (*sp == '\n') *sp = getchar();
+                sp++;
                 break;
             case 's':
                 *(sp) = *sp - *(sp-1);
