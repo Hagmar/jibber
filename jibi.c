@@ -111,6 +111,6 @@ int main(int argc, char** argv){
     } else {
         interpret(argv[1]);
     }
-
+    printf("\n");
     return 0;
 }
