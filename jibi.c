@@ -2,7 +2,7 @@
 
 char data[5000] = {0};
 char stack[5000] = {0};
-char *funs[26] = {0};
+char *funs[256] = {0};
 char *p = data;
 char *sp = stack;
 
@@ -14,7 +14,6 @@ void dump_stack() {
 
 void interpret(char* program){
     char *c = program;
-    char *fp;
     unsigned char i;
 
     while (*c != '.') {
@@ -29,7 +28,7 @@ void interpret(char* program){
                 }
                 break;
             case 'c':
-                i = *(++c) - 'a';
+                i = *(++c);
                 interpret(funs[i]);
                 break;
             case 'd':
@@ -40,14 +39,9 @@ void interpret(char* program){
                 sp++;
                 break;
             case 'f':
-                i = *(++c) - 'a';
-                char f[1000];
-                fp = f;
-                funs[i] = f;
-                while (*(++c) != '.') {
-                    *(fp++) = *c;
-                }
-                *fp = '.';
+                i = *(++c);
+                funs[i] = c+1;
+                while (*(++c) != '.') ;
                 break;
             case 'i':
                 (*(sp-1))++;
