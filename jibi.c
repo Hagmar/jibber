@@ -24,7 +24,29 @@ void interpret(char* program){
                 break;
             case 'b':
                 if (! *--sp) {
-                    while (*(++c) != ',');
+                    i = 0;
+                    unsigned char skip = 0;
+                    while (*++c != ',' || i || skip){
+                        if (skip) {
+                            skip = 0;
+                        } else {
+                            switch (*c) {
+                                case 'c':
+                                case 'f':
+                                case 't':
+                                    skip = 1;
+                                    break;
+                                case 'b':
+                                case 'j':
+                                    i++;
+                                    break;
+                                case ',':
+                                    i--;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
                 }
                 break;
             case 'c':

@@ -10,8 +10,8 @@ iiemeeawxdmieziieemmeimeoaeenwopxadeeooiiiennwoiiienwopxxxxppxaooiiiodddonxdonnx
 * **d** - decrement
 * **f** - function
 * **i** - increment
-* **j** - jump to label
-* **l** - loop
+* **j** - jump to next label or end
+* **l** - loop to previous label
 * **m** - multiply
 * **n** - next
 * **o** - output
